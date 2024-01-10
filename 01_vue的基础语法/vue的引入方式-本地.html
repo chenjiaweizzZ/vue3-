@@ -1,0 +1,23 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue的引入方式-CDN</title>
+</head>
+
+<body>
+    <h2>hello html</h2>
+    <div id="app"></div>
+    <script src="./lib/vue.js"></script>
+    <script>
+        // 使用vue
+        const app = Vue.createApp({
+            template: `<h2>hello Vue3</h2>`
+        })
+        // 挂载
+        app.mount("#app")
+    </script>
+</body>
+
+</html>
