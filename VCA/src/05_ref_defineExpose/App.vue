@@ -7,7 +7,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup> 
 import { onMounted, ref } from 'vue';
 import showInfo from './showInfo.vue'
 const titleRef = ref()
