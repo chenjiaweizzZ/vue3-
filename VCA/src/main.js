@@ -7,7 +7,13 @@ import { createApp } from 'vue'
 // import App from './05.1_ref_defineProps&defineEmits/App.vue'
 // import App from './06_watch/App.vue'
 // import App from './07_watchEffive/App.vue'
-import App from './08_hooks/App.vue'
+// import App from './08_hooks/App.vue'
+import App from './09_router/App.vue'
+import router from './09_router/router'
+// createApp(App).mount('#app')
 
-createApp(App).mount('#app')
+const app = createApp(App)
+app.use(router)
+app.mount("#app")
+
  
