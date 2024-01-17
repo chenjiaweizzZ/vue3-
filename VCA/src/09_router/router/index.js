@@ -16,13 +16,37 @@ const router = createRouter({
         {
             name: 'home',
             path:"/home",
-            component: () => import(/*webpackChunkName: 'home'*/'../views/home.vue')
+            // component: () => import(/*webpackChunkName: 'home'*/'../views/home.vue'),
+            children: [
+                {
+                    path: '',
+                    redirect: '/home/rank'
+                },
+                {
+                    path: 'rank',
+                    name: 'homeRank',
+                    component: () => import(/*webpackChunkName: 'home'*/'../views/home.vue'),
+                }
+            ]
             //魔法注释
         },
         {
             name: 'about',
             path:"/about",
-            component: () => import(/*webpackChunkName: 'about'*/'../views/about.vue')
+            component: () => import(/*webpackChunkName: 'about'*/'../views/about.vue'),
+            meta: {
+                title: '关于',
+                name: '关于'
+            }
+        },
+        {
+            name: 'user',
+            path: "/user/:id",
+            component: () => import('../views/user.vue')
+        },
+        {
+            path: "/:pathMatch(.*)*",
+            component: () => import('../views/notFound.vue')
         }
     ]
 })
