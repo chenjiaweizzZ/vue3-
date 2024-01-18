@@ -2,9 +2,11 @@
     <div>vue-router</div>
     <div>
         <router-link to="/home">首页</router-link>
+        <router-link to="/home/homeChild">vip</router-link>
         <router-link to="/about">关于</router-link>
         <router-link to="/user/123">用户</router-link>
         <router-link to="/user/456">用户</router-link>
+        <router-link to="/admin">我的</router-link>
         <button @click="home">首页</button>
         <button @click="about">关于</button>
         <button @click="user">用户</button>

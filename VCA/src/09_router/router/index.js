@@ -51,4 +51,18 @@ const router = createRouter({
     ]
 })
 
+let admin = true
+if (admin) {
+    router.addRoute({
+        path: '/admin',
+        component: () => import('../views/admin.vue')
+    })
+    router.addRoute("home", {
+        path: 'homeChild',
+        component: () => import('../views/homeChild.vue')
+    })
+    // router.removeRoute('about') 移除
+    
+}
+
 export default router
