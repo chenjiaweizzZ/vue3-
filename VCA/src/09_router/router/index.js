@@ -14,7 +14,7 @@ const router = createRouter({
             redirect: '/home'
         },
         {
-            name: 'home',
+            // name: 'home',
             path:"/home",
             // component: () => import(/*webpackChunkName: 'home'*/'../views/home.vue'),
             children: [
@@ -58,7 +58,7 @@ if (admin) {
         component: () => import('../views/admin.vue')
     })
     router.addRoute("home", {
-        path: 'homeChild',
+        path: '/homeChild',
         component: () => import('../views/homeChild.vue')
     })
     // router.removeRoute('about') 移除
