@@ -14,10 +14,18 @@
     <script>
         //使用vue
         const app = Vue.createApp({
-            template: `<h2>{{ title }}</h2>`,
+            template: `
+                <h2>{{ title }}</h2>
+                <ul>
+                    <li v-for="item in list">
+                        {{ item }}
+                    </li>    
+                </ul>
+            `,
             data: function () {
                 return {
                     title: "hello vue3",
+                    list: [1,2,3,4,5,6]
                 }
             }
         })
