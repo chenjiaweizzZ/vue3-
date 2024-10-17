@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memo</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <h2 @click="getEvent('params',$event)">event</h2>
+            <h2 @mousemove="mouseMove()">mouseMove</h2>
+            <h2 @="{click:mouseClick('param1',$event),mousemove:mouseMove }">mouseMove&mouseClick</h2>
+        </div>
+    </div>
+    <script src="./lib/vue.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data: function () {
+                return {
+                    age: 13,
+                    height: 175
+                }
+            },
+            methods: {
+                getEvent(param1, event) {
+                    console.log(param1, event)
+                },
+                mouseMove() {
+                    console.log("mouseMove")
+                },
+                mouseClick(param1, event) {
+                    console.log("mouseClick")
+                    console.log(param1, event)
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+
+</html>
