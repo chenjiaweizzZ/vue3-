@@ -12,8 +12,11 @@
         <div v-memo="[age]">
             <h2>{{age}}</h2>
             <h2>{{height}}</h2>
+            <h3>{{ ageHeight }}</h3>
             <button @click="addAge">age+</button>
             <button @click="addHeight">height+</button>
+            <button @click="addWeight">weight++</button>
+            <button @click="addWeight2">weight++2</button>
         </div>
     </div>
     <script src="./lib/vue.js"></script>
@@ -22,7 +25,11 @@
             data: function () {
                 return {
                     age: 13,
-                    height: 175
+                    height: 175,
+                    info: {
+                        name: "陈家伟",
+                        weight: 75
+                    }
                 }
             },
             methods: {
@@ -31,7 +38,45 @@
                 },
                 addHeight() {
                     this.height += 1
+                },
+                addWeight() {
+                    this.info = {
+                        name: "陈大伟"
+                    }
+                },
+                addWeight2() {
+                    this.info.weight++
                 }
+            },
+            computed: {
+                // ageHeight() {
+                //     return this.age + "-" + this.height
+                // },
+                ageHeight: {
+                    get: function () {
+                        return this.age + "-" + this.height
+                    },
+                }
+            },
+            watch: {
+                age(newValue, oldValue) {
+                    console.log(newValue, oldValue)
+                },
+                info(newValue, oldValue) {
+                    console.log(newValue)  //代理对象
+                    console.log({ ...newValue })
+                    console.log(Vue.toRaw(newValue))
+                },
+                info: {
+                    handler(newValue, oldValue) {
+                        console.log(newValue, oldValue)
+                    },
+                    //深度监听
+                    deep: true,
+                    //第一次执行
+                    immediate: true
+                },
+                // b: "someMethod"
             }
         })
         app.mount("#app")
