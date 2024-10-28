@@ -1,26 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1>{{ num }}</h1>
+    <test-1 :num="num" @add="adder"></test-1>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import test1 from "./components/test1.vue";
 
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      num: 1,
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    test1,
+  },
+  methods: {
+    adder(number) {
+      console.log(number);
+      this.num += number;
+    },
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
