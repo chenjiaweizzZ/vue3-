@@ -7,16 +7,27 @@
 
 <script>
 import test1 from "./components/test1.vue";
-
+import { computed } from "vue";
 export default {
   name: "App",
   data() {
     return {
       num: 1,
+      name: "chenjiawei",
     };
   },
   components: {
     test1,
+  },
+  // provide: {
+  //   name: "chenjiawei",
+  // },
+  provide() {
+    return {
+      name: computed(() => {
+        return this.num;
+      }),
+    };
   },
   methods: {
     adder(number) {
