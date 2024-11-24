@@ -8,8 +8,9 @@ import { createApp } from 'vue'
 // import App from './06_watch/App.vue'
 // import App from './07_watchEffive/App.vue'
 // import App from './08_hooks/App.vue'
+import App from './08_hooks2/App.vue'
 // import App from './09_router/App.vue'
-import App from './10_pinia/App.vue'
+// import App from './10_pinia/App.vue'
 import router from './09_router/router'
 import pinia from './10_pinia/store'
 // createApp(App).mount('#app')
@@ -19,4 +20,3 @@ app.use(router)
 app.use(pinia)
 app.mount("#app")
 
- 
